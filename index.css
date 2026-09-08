@@ -1,0 +1,69 @@
+body {
+    margin: 0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: #F1E9DC;
+}
+
+#banner {
+    background-color: #4E342E;
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+#titulo-portada {
+    font-size: 30px;
+    margin: 0 0 10px 0;
+}
+
+.subtexto {
+    font-size: 15px;
+    color: #F1E9DC;
+    margin: 0;
+}
+
+.contenedor-principal {
+    max-width: 650px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.titulo-seccion {
+    color: #4E342E;
+    border-bottom: 2px solid #B5652D;
+    padding-bottom: 8px;
+    margin-top: 40px;
+}
+
+.lista-tarjetas {
+    margin-top: 16px;
+}
+
+.tarjeta {
+    background-color: white;
+    border-left: 4px solid #B5652D;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+}
+
+.titulo-tarjeta {
+    display: block;
+    color: #4E342E;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 17px;
+    margin-bottom: 6px;
+}
+
+.titulo-tarjeta:hover {
+    color: #B5652D;
+    text-decoration: underline;
+}
+
+.descripcion-tarjeta {
+    color: #6b5c52;
+    font-size: 14px;
+    margin: 0;
+    font-family: "Work Sans", sans-serif;
+}

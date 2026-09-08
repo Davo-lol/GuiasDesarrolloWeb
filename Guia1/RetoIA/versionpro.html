@@ -1,0 +1,1510 @@
+<!DOCTYPE html>
+<html lang="es-SV">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Little Caesars El Salvador | Hot-N-Ready® Caliente y al Instante</title>
+  <meta name="description" content="La pizza más rápida, crujiente y al mejor precio de El Salvador. Pide tu Hot-N-Ready® favorita o solicita entrega por Uber Eats y PedidosYa.">
+  <meta name="theme-color" content="#FF5A00">
+
+  <!-- Open Graph / Redes Sociales -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Little Caesars El Salvador | Pizza Caliente y al Instante">
+  <meta property="og:description" content="Masa fresca hecha a mano hoy mismo, salsa de tomates madurados y 100% queso mozzarella real. Ordena en línea o pasa por tu sucursal.">
+  <meta property="og:url" content="https://pizzapizza.com.sv/">
+
+  <!-- Tipografías: Bebas Neue (Display/Titulares con impacto) + Plus Jakarta Sans (Lectura pulcra) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Schema.org JSON-LD para SEO Local -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FastFoodRestaurant",
+    "name": "Little Caesars El Salvador",
+    "image": "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1200&q=80",
+    "url": "https://pizzapizza.com.sv",
+    "telephone": "+50325000000",
+    "priceRange": "$",
+    "servesCuisine": "Pizza, American Fast Food",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "San Salvador",
+      "addressRegion": "San Salvador",
+      "addressCountry": "SV"
+    },
+    "sameAs": [
+      "https://facebook.com/littlecaesarses",
+      "https://instagram.com/littlecaesarses"
+    ]
+  }
+  </script>
+
+  <style>
+    /* ==========================================================================
+       1. DESIGN SYSTEM & CSS TOKENS
+       ========================================================================== */
+    :root {
+      /* Paleta Primaria & Acentos */
+      --lc-orange: #FF5A00;
+      --lc-orange-dark: #D94800;
+      --lc-yellow: #FFB800;
+      --lc-yellow-light: #FFE082;
+      
+      /* Neutros & Fondos */
+      --lc-black: #121212;
+      --lc-charcoal: #1F1F1F;
+      --lc-muted-gray: #6B7280;
+      --lc-border: #E5E7EB;
+      --lc-surface-cream: #FCFAF6;
+      --lc-surface-card: #FFFFFF;
+      --lc-white: #FFFFFF;
+
+      /* Tipografía */
+      --font-display: 'Bebas Neue', Impact, sans-serif;
+      --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+
+      /* Sombras & Elevaciones */
+      --shadow-sm: 0 2px 4px rgba(0,0,0,0.04);
+      --shadow-md: 0 10px 24px -4px rgba(0, 0, 0, 0.08);
+      --shadow-lg: 0 20px 35px -8px rgba(0, 0, 0, 0.12);
+      --shadow-orange: 0 12px 28px -6px rgba(255, 90, 0, 0.35);
+
+      /* Layout */
+      --container-max: 1240px;
+      --transition-smooth: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-full: 9999px;
+    }
+
+    /* Reset Moderno */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--lc-surface-cream);
+      color: var(--lc-black);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: var(--transition-smooth);
+    }
+
+    button {
+      cursor: pointer;
+      font-family: inherit;
+      border: none;
+      background: none;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--container-max);
+      margin-inline: auto;
+      padding-inline: 1.5rem;
+    }
+
+    /* ==========================================================================
+       2. COMPONENTES GLOBALES (BOTONES & BADGES)
+       ========================================================================== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.9rem 1.8rem;
+      border-radius: var(--radius-full);
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      transition: var(--transition-smooth);
+    }
+
+    .btn-primary {
+      background-color: var(--lc-orange);
+      color: var(--lc-white);
+      box-shadow: var(--shadow-orange);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--lc-orange-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 16px 32px -4px rgba(255, 90, 0, 0.45);
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--lc-black);
+      border: 2px solid var(--lc-black);
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--lc-black);
+      color: var(--lc-white);
+      transform: translateY(-2px);
+    }
+
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.35rem 0.9rem;
+      border-radius: var(--radius-full);
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .badge-pill.hot {
+      background-color: var(--lc-yellow);
+      color: var(--lc-black);
+    }
+
+    .section-eyebrow {
+      color: var(--lc-orange);
+      font-weight: 800;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      line-height: 0.95;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      color: var(--lc-black);
+      margin-bottom: 1rem;
+    }
+
+    /* Scroll Reveal Helper */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+      will-change: opacity, transform;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ==========================================================================
+       3. HEADER & NAVEGACIÓN
+       ========================================================================== */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(252, 250, 246, 0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      transition: var(--transition-smooth);
+    }
+
+    .nav-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 76px;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .brand-logo-text {
+      font-family: var(--font-display);
+      font-size: 1.9rem;
+      letter-spacing: 0.02em;
+      color: var(--lc-orange);
+      line-height: 1;
+    }
+
+    .brand-logo-badge {
+      font-family: var(--font-body);
+      background: var(--lc-black);
+      color: var(--lc-yellow);
+      font-size: 0.65rem;
+      font-weight: 800;
+      padding: 0.15rem 0.4rem;
+      border-radius: 4px;
+      letter-spacing: 0.05em;
+    }
+
+    .nav-menu {
+      display: none;
+      align-items: center;
+      gap: 2.2rem;
+      list-style: none;
+    }
+
+    .nav-link {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--lc-charcoal);
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--lc-orange);
+      transition: var(--transition-smooth);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta-group {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    /* Mobile Toggle */
+    .menu-toggle {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      padding: 0.5rem;
+      z-index: 1100;
+    }
+
+    .menu-toggle span {
+      width: 24px;
+      height: 2px;
+      background-color: var(--lc-black);
+      transition: var(--transition-smooth);
+    }
+
+    /* Mobile Menu Drawer */
+    .mobile-drawer {
+      position: fixed;
+      top: 76px;
+      left: 0;
+      width: 100%;
+      height: calc(100vh - 76px);
+      background: var(--lc-surface-cream);
+      padding: 2.5rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      transform: translateX(-100%);
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 999;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .mobile-drawer.is-open {
+      transform: translateX(0);
+    }
+
+    .mobile-drawer .nav-link {
+      font-size: 1.4rem;
+      font-family: var(--font-display);
+      letter-spacing: 0.03em;
+    }
+
+    @media (min-width: 900px) {
+      .nav-menu { display: flex; }
+      .menu-toggle { display: none; }
+      .mobile-drawer { display: none; }
+    }
+
+    /* ==========================================================================
+       4. HERO SECTION
+       ========================================================================== */
+    .hero-section {
+      padding: clamp(2rem, 6vw, 4.5rem) 0 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .hero-content {
+      max-width: 580px;
+    }
+
+    .hero-headline {
+      font-family: var(--font-display);
+      font-size: clamp(3.2rem, 7.5vw, 5.8rem);
+      line-height: 0.92;
+      color: var(--lc-black);
+      margin-top: 1rem;
+      margin-bottom: 1.2rem;
+      text-transform: uppercase;
+    }
+
+    .hero-headline span.highlight {
+      color: var(--lc-orange);
+      position: relative;
+      display: inline-block;
+    }
+
+    .hero-subheadline {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: #4B5563;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .hero-cta-box {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .hero-proof {
+      margin-top: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--lc-muted-gray);
+    }
+
+    .hero-visual {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-glow {
+      position: absolute;
+      width: 75%;
+      height: 75%;
+      background: radial-gradient(circle, rgba(255,184,0,0.3) 0%, rgba(255,90,0,0.12) 65%, transparent 100%);
+      filter: blur(45px);
+      z-index: 1;
+    }
+
+    .hero-img {
+      position: relative;
+      z-index: 2;
+      filter: drop-shadow(0 25px 35px rgba(0,0,0,0.2));
+      transform: rotate(-3deg) scale(1);
+      transition: transform 0.5s ease;
+      border-radius: var(--radius-lg);
+      object-fit: cover;
+      max-height: 480px;
+      width: 100%;
+    }
+
+    .hero-visual:hover .hero-img {
+      transform: rotate(0deg) scale(1.02);
+    }
+
+    .hero-badge-float {
+      position: absolute;
+      bottom: 20px;
+      left: 10px;
+      z-index: 3;
+      background: rgba(18, 18, 18, 0.92);
+      color: var(--lc-white);
+      padding: 1rem 1.4rem;
+      border-radius: var(--radius-md);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .hero-badge-float strong {
+      display: block;
+      color: var(--lc-yellow);
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      line-height: 1;
+    }
+
+    .hero-badge-float span {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #9CA3AF;
+    }
+
+    @media (min-width: 900px) {
+      .hero-grid {
+        grid-template-columns: 1.1fr 0.9fr;
+      }
+    }
+
+    /* ==========================================================================
+       5. VALUE PROPOSITION
+       ========================================================================== */
+    .value-section {
+      padding: 5rem 0;
+      background: var(--lc-white);
+      border-top: 1px solid var(--lc-border);
+      border-bottom: 1px solid var(--lc-border);
+    }
+
+    .value-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2rem;
+    }
+
+    .value-card {
+      padding: 2rem;
+      border-radius: var(--radius-md);
+      background: var(--lc-surface-cream);
+      border: 1px solid rgba(0,0,0,0.04);
+      transition: var(--transition-smooth);
+    }
+
+    .value-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--lc-orange);
+    }
+
+    .value-icon {
+      width: 52px;
+      height: 52px;
+      background: var(--lc-yellow-light);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      margin-bottom: 1.2rem;
+      color: var(--lc-orange-dark);
+    }
+
+    .value-card h3 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+      color: var(--lc-black);
+    }
+
+    .value-card p {
+      font-size: 0.92rem;
+      color: var(--lc-muted-gray);
+      line-height: 1.6;
+    }
+
+    /* ==========================================================================
+       6. FEATURED MENU (PRODUCT CARDS)
+       ========================================================================== */
+    .menu-section {
+      padding: 6rem 0;
+    }
+
+    .section-header-row {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 3.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .section-header-row {
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: space-between;
+      }
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 2rem;
+    }
+
+    .product-card {
+      background: var(--lc-white);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--lc-border);
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition-smooth);
+      position: relative;
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(255, 90, 0, 0.3);
+    }
+
+    .product-media {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      background: #F3F4F6;
+    }
+
+    .product-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .product-card:hover .product-media img {
+      transform: scale(1.06);
+    }
+
+    .product-tag {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      z-index: 2;
+    }
+
+    .product-body {
+      padding: 1.6rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .product-title {
+      font-family: var(--font-display);
+      font-size: 1.7rem;
+      letter-spacing: 0.02em;
+      line-height: 1.1;
+      margin-bottom: 0.4rem;
+    }
+
+    .product-desc {
+      font-size: 0.88rem;
+      color: var(--lc-muted-gray);
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+      line-height: 1.5;
+    }
+
+    .product-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 1.2rem;
+      border-top: 1px solid #F3F4F6;
+    }
+
+    .product-price {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      color: var(--lc-orange);
+      line-height: 1;
+    }
+
+    .product-footer .btn {
+      padding: 0.65rem 1.2rem;
+      font-size: 0.85rem;
+    }
+
+    /* ==========================================================================
+       7. INGREDIENTS PROCESS (TIMELINE / EDITORIAL)
+       ========================================================================== */
+    .ingredients-section {
+      padding: 6rem 0;
+      background: var(--lc-charcoal);
+      color: var(--lc-white);
+      position: relative;
+    }
+
+    .ingredients-section .section-eyebrow {
+      color: var(--lc-yellow);
+    }
+
+    .ingredients-section .section-title {
+      color: var(--lc-white);
+    }
+
+    .ingredients-subhead {
+      color: #9CA3AF;
+      max-width: 580px;
+      margin-bottom: 4rem;
+    }
+
+    .process-track {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      position: relative;
+    }
+
+    @media (min-width: 768px) {
+      .process-track {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .process-step {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-md);
+      padding: 2.2rem;
+      position: relative;
+      transition: var(--transition-smooth);
+    }
+
+    .process-step:hover {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: var(--lc-yellow);
+      transform: translateY(-4px);
+    }
+
+    .step-number {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      color: var(--lc-yellow);
+      opacity: 0.4;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .step-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+      color: var(--lc-white);
+    }
+
+    .step-copy {
+      font-size: 0.9rem;
+      color: #D1D5DB;
+      line-height: 1.6;
+    }
+
+    /* ==========================================================================
+       8. LOCATIONS & MAP TEASER
+       ========================================================================== */
+    .locations-section {
+      padding: 6rem 0;
+      background: var(--lc-surface-cream);
+    }
+
+    .locations-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    @media (min-width: 900px) {
+      .locations-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .locations-map-card {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      position: relative;
+      min-height: 380px;
+      border: 1px solid var(--lc-border);
+      background: #E5E7EB;
+    }
+
+    .locations-map-card iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 380px;
+      border: 0;
+      filter: contrast(1.05) saturate(1.1);
+    }
+
+    .branch-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .branch-item {
+      padding: 1rem 1.2rem;
+      background: var(--lc-white);
+      border-radius: var(--radius-sm);
+      border-left: 4px solid var(--lc-orange);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .branch-item strong {
+      display: block;
+      font-size: 0.95rem;
+      color: var(--lc-black);
+    }
+
+    .branch-item span {
+      font-size: 0.8rem;
+      color: var(--lc-muted-gray);
+    }
+
+    /* ==========================================================================
+       9. SOCIAL PROOF / REVIEWS
+       ========================================================================== */
+    .reviews-section {
+      padding: 6rem 0;
+      background: var(--lc-white);
+      border-top: 1px solid var(--lc-border);
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .review-card {
+      background: var(--lc-surface-cream);
+      padding: 2.2rem;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--lc-border);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .stars {
+      color: var(--lc-yellow);
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+
+    .review-text {
+      font-size: 0.95rem;
+      font-style: italic;
+      color: #374151;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .reviewer-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .reviewer-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--lc-orange-dark);
+      color: var(--lc-white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .reviewer-info h4 {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--lc-black);
+    }
+
+    .reviewer-info span {
+      font-size: 0.75rem;
+      color: var(--lc-muted-gray);
+    }
+
+    /* ==========================================================================
+       10. ORDER DISPATCH BLOCK (UBER EATS & PEDIDOSYA)
+       ========================================================================== */
+    .order-cta-section {
+      padding: 5rem 0;
+      background: linear-gradient(135deg, var(--lc-orange) 0%, var(--lc-orange-dark) 100%);
+      color: var(--lc-white);
+      text-align: center;
+    }
+
+    .order-cta-box {
+      max-width: 720px;
+      margin-inline: auto;
+    }
+
+    .order-cta-box .section-title {
+      color: var(--lc-white);
+    }
+
+    .order-cta-box p {
+      font-size: 1.1rem;
+      margin-bottom: 2.5rem;
+      opacity: 0.95;
+    }
+
+    .delivery-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+
+    .btn-delivery {
+      background: var(--lc-white);
+      color: var(--lc-black);
+      padding: 0.9rem 2rem;
+      border-radius: var(--radius-full);
+      font-weight: 800;
+      font-size: 1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      box-shadow: var(--shadow-md);
+      transition: var(--transition-smooth);
+    }
+
+    .btn-delivery:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 14px 28px rgba(0,0,0,0.2);
+    }
+
+    .btn-delivery.pedidosya {
+      background: #EA0042;
+      color: var(--lc-white);
+    }
+
+    .btn-delivery.ubereats {
+      background: var(--lc-black);
+      color: #06C167;
+    }
+
+    /* ==========================================================================
+       11. FOOTER
+       ========================================================================== */
+    .site-footer {
+      background: var(--lc-black);
+      color: #9CA3AF;
+      padding: 4.5rem 0 2rem;
+      font-size: 0.9rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 3rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .footer-brand h3 {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      color: var(--lc-orange);
+      margin-bottom: 0.8rem;
+    }
+
+    .footer-brand p {
+      line-height: 1.6;
+      margin-bottom: 1.2rem;
+    }
+
+    .footer-col h4 {
+      color: var(--lc-white);
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 1.2rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .footer-links a:hover {
+      color: var(--lc-yellow);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .social-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: #27272A;
+      color: var(--lc-white);
+      border-radius: 50%;
+      transition: var(--transition-smooth);
+    }
+
+    .social-pill:hover {
+      background: var(--lc-orange);
+      transform: translateY(-2px);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #27272A;
+      padding-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.8rem;
+      text-align: center;
+      font-size: 0.8rem;
+    }
+
+    @media (min-width: 768px) {
+      .footer-bottom {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==========================================================================
+       HEADER STICKY
+       ========================================================================== -->
+  <header class="site-header" id="header">
+    <div class="container nav-wrapper">
+      <a href="#" class="brand-logo" aria-label="Little Caesars El Salvador - Inicio">
+        <span class="brand-logo-text">LITTLE CAESARS</span>
+        <span class="brand-logo-badge">SV</span>
+      </a>
+
+      <!-- Navegación de Escritorio -->
+      <nav aria-label="Navegación principal">
+        <ul class="nav-menu">
+          <li><a href="#hero" class="nav-link">Inicio</a></li>
+          <li><a href="#menu" class="nav-link">Menú</a></li>
+          <li><a href="#ingredientes" class="nav-link">Calidad</a></li>
+          <li><a href="#ubicaciones" class="nav-link">Ubicaciones</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-cta-group">
+        <a href="#pedir" class="btn btn-primary" style="padding: 0.65rem 1.4rem; font-size: 0.85rem;">Ordena Ahora</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú de navegación" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Menú Móvil -->
+    <div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+      <a href="#hero" class="nav-link mobile-link">Inicio</a>
+      <a href="#menu" class="nav-link mobile-link">Menú Completo</a>
+      <a href="#ingredientes" class="nav-link mobile-link">Nuestros Ingredientes</a>
+      <a href="#ubicaciones" class="nav-link mobile-link">Sucursales en El Salvador</a>
+      <a href="#pedir" class="btn btn-primary mobile-link" style="margin-top: 1rem;">Pedir a Domicilio</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==========================================================================
+         HERO SECTION
+         ========================================================================== -->
+    <section class="hero-section" id="hero">
+      <div class="container hero-grid">
+        <div class="hero-content reveal">
+          <div class="badge-pill hot">⚡ Lista en segundos · Hot-N-Ready®</div>
+          <h1 class="hero-headline">Caliente, Crujiente y <span class="highlight">al Instante.</span></h1>
+          <p class="hero-subheadline">
+            Sin filas interminables ni esperas. Pasa por tu sucursal favorita en El Salvador y llévate tu pizza recién horneada de inmediato, o pídela a domicilio hoy mismo.
+          </p>
+          <div class="hero-cta-box">
+            <a href="#pedir" class="btn btn-primary">Ordena Ahora</a>
+            <a href="#menu" class="btn btn-secondary">Ver Menú Completo</a>
+          </div>
+          <div class="hero-proof">
+            <span>🍕 +25 Sucursales en todo el país</span>
+            <span>•</span>
+            <span>⭐ Queso 100% Mozzarella Real</span>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal">
+          <div class="hero-glow"></div>
+          <!-- Imagen optimizada de pizza con recorte de alta estética -->
+          <img 
+            src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=900&q=80" 
+            alt="Pizza Pepperoni Little Caesars recién horneada con masa crujiente y queso fundido" 
+            class="hero-img"
+            width="600" 
+            height="450"
+            loading="eager"
+          >
+          <div class="hero-badge-float">
+            <strong>$5.50</strong>
+            <span>Hot-N-Ready Clásica Pepperoni</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         VALUE PROPOSITION
+         ========================================================================== -->
+    <section class="value-section">
+      <div class="container">
+        <div class="value-grid">
+          <div class="value-card reveal">
+            <div class="value-icon">⏱️</div>
+            <h3>Rapidez Hot-N-Ready®</h3>
+            <p>Entras, pagas y sales comiendo. Tu pizza favorita está lista al segundo, sin tiempos de espera en mostrador.</p>
+          </div>
+          <div class="value-card reveal">
+            <div class="value-icon">🌾</div>
+            <h3>Masa Fresca Diaria</h3>
+            <p>Amasada a mano cada mañana en cada una de nuestras sucursales. Nunca masa congelada.</p>
+          </div>
+          <div class="value-card reveal">
+            <div class="value-icon">🧀</div>
+            <h3>Queso 100% Real</h3>
+            <p>Nuestra mezcla exclusiva de mozzarella y muenster rallada al momento para lograr ese tirón perfecto.</p>
+          </div>
+          <div class="value-card reveal">
+            <div class="value-icon">🏷️</div>
+            <h3>El Mejor Precio del País</h3>
+            <p>Comida abundante y deliciosa para compartir en familia sin castigar tu presupuesto.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         FEATURED MENU
+         ========================================================================== -->
+    <section class="menu-section" id="menu">
+      <div class="container">
+        <div class="section-header-row reveal">
+          <div>
+            <span class="section-eyebrow">Nuestras Estrellas</span>
+            <h2 class="section-title">El Menú Más Buscado</h2>
+          </div>
+          <a href="#pedir" class="btn btn-secondary">Ver todo en apps de delivery</a>
+        </div>
+
+        <div class="products-grid">
+          <!-- Producto 1 -->
+          <article class="product-card reveal">
+            <div class="product-media">
+              <span class="badge-pill hot product-tag">La Legendaria</span>
+              <img 
+                src="https://images.unsplash.com/photo-1628840042765-356cda07504e?auto=format&fit=crop&w=600&q=80" 
+                alt="Pizza Hot-N-Ready Pepperoni clásica con salsa de tomate y queso fundido" 
+                loading="lazy"
+                width="400"
+                height="300"
+              >
+            </div>
+            <div class="product-body">
+              <h3 class="product-title">Hot-N-Ready® Pepperoni</h3>
+              <p class="product-desc">Cargada con rebanadas doradas de pepperoni y nuestra clásica capa generosa de queso mozzarella derretido.</p>
+              <div class="product-footer">
+                <span class="product-price">$5.50</span>
+                <a href="#pedir" class="btn btn-primary">Pedir</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Producto 2 -->
+          <article class="product-card reveal">
+            <div class="product-media">
+              <span class="badge-pill hot product-tag">Para los Fans del Queso</span>
+              <img 
+                src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=600&q=80" 
+                alt="Pizza Clásica de Queso Mozzarella de Little Caesars" 
+                loading="lazy"
+                width="400"
+                height="300"
+              >
+            </div>
+            <div class="product-body">
+              <h3 class="product-title">Hot-N-Ready® Queso</h3>
+              <p class="product-desc">Doble porción de mezcla premium de queso mozzarella y muenster con el toque especiado de nuestra salsa secreta.</p>
+              <div class="product-footer">
+                <span class="product-price">$5.50</span>
+                <a href="#pedir" class="btn btn-primary">Pedir</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Producto 3 -->
+          <article class="product-card reveal">
+            <div class="product-media">
+              <span class="badge-pill hot product-tag">Irresistible</span>
+              <img 
+                src="https://images.unsplash.com/photo-1541745537411-b8046dc6d66c?auto=format&fit=crop&w=600&q=80" 
+                alt="Crazy Bread palitroques horneados con mantequilla de ajo y queso parmesano" 
+                loading="lazy"
+                width="400"
+                height="300"
+              >
+            </div>
+            <div class="product-body">
+              <h3 class="product-title">Crazy Bread® (8 Pzas)</h3>
+              <p class="product-desc">Palitroques horneados al punto exacto, bañados en mezcla de mantequilla de ajo y parmesano con salsa Crazy Sauce®.</p>
+              <div class="product-footer">
+                <span class="product-price">$2.99</span>
+                <a href="#pedir" class="btn btn-primary">Pedir</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Producto 4 -->
+          <article class="product-card reveal">
+            <div class="product-media">
+              <span class="badge-pill hot product-tag">Super Especialidad</span>
+              <img 
+                src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=600&q=80" 
+                alt="Pizza Super Cheese 4 Sabores en una sola masa de Little Caesars" 
+                loading="lazy"
+                width="400"
+                height="300"
+              >
+            </div>
+            <div class="product-body">
+              <h3 class="product-title">Hula Hawaiian</h3>
+              <p class="product-desc">Jamón dulce ahumado, piña jugosa en dados y extra queso sobre nuestra masa gruesa y tostada.</p>
+              <div class="product-footer">
+                <span class="product-price">$7.25</span>
+                <a href="#pedir" class="btn btn-primary">Pedir</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         INGREDIENTS PROCESS (TIMELINE / STORYTELLING)
+         ========================================================================== -->
+    <section class="ingredients-section" id="ingredientes">
+      <div class="container">
+        <span class="section-eyebrow">Nuestra Promesa de Sabor</span>
+        <h2 class="section-title">El Secreto Está en la Disciplina</h2>
+        <p class="ingredients-subhead">
+          Un precio accesible nunca debe significar atajos. Descubre por qué cada mordisco mantiene el estándar internacional de Little Caesars.
+        </p>
+
+        <div class="process-track">
+          <div class="process-step reveal">
+            <div class="step-number">01</div>
+            <h3 class="step-title">Masa Fresca Cada Madrugada</h3>
+            <p class="step-copy">Harina de alta proteína mezclada diariamente en cada tienda con agua purificada y levadura viva. Reposada con precisión para una corteza crujiente por fuera y suave por dentro.</p>
+          </div>
+
+          <div class="process-step reveal">
+            <div class="step-number">02</div>
+            <h3 class="step-title">Tomates Madurados al Sol</h3>
+            <p class="step-copy">Salsa elaborada con tomates recolectados en su punto óptimo de dulzura, combinada con hierbas aromáticas italianas que sellan nuestro perfil de sabor inconfundible.</p>
+          </div>
+
+          <div class="process-step reveal">
+            <div class="step-number">03</div>
+            <h3 class="step-title">Queso Rallado Diario</h3>
+            <p class="step-copy">Cero quesos procesados o análogos. Usamos mezcla de mozzarella de grado pasteurizado que se funde uniformemente en nuestros hornos continuos a más de 240°C.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         LOCATIONS & COVERAGE
+         ========================================================================== -->
+    <section class="locations-section" id="ubicaciones">
+      <div class="container">
+        <div class="locations-grid">
+          <div class="reveal">
+            <span class="section-eyebrow">Cerca de Ti</span>
+            <h2 class="section-title">Encuentra Tu Little Caesars Más Cercano</h2>
+            <p style="color: var(--lc-muted-gray); margin-bottom: 1.5rem;">
+              Con presencia en las principales zonas de San Salvador, Santa Tecla, Soyapango, Santa Ana y San Miguel. Siempre hay un Hot-N-Ready® esperando en tu camino a casa.
+            </p>
+
+            <div class="branch-list">
+              <div class="branch-item">
+                <div>
+                  <strong>Sucursal Los Héroes</strong>
+                  <span>Boulevard de Los Héroes, San Salvador</span>
+                </div>
+                <span class="badge-pill hot">Auto-Pizza</span>
+              </div>
+              <div class="branch-item">
+                <div>
+                  <strong>Sucursal Merliot</strong>
+                  <span>Calle Chiltiupán y Av. El Pedregal, Ciudad Merliot</span>
+                </div>
+                <span class="badge-pill hot">Comedor / Llevar</span>
+              </div>
+              <div class="branch-item">
+                <div>
+                  <strong>Sucursal Roosevelt</strong>
+                  <span>Alameda Roosevelt y 43 Av. Sur, San Salvador</span>
+                </div>
+                <span class="badge-pill hot">Auto-Pizza</span>
+              </div>
+            </div>
+
+            <div style="margin-top: 2rem;">
+              <a href="https://maps.google.com/?q=Little+Caesars+El+Salvador" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                Ver Todas las Sucursales en Google Maps ↗
+              </a>
+            </div>
+          </div>
+
+          <div class="locations-map-card reveal">
+            <!-- Embebido liviano de Google Maps (Placeholder de ubicación central San Salvador) -->
+            <iframe 
+              title="Mapa de sucursales Little Caesars en San Salvador"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d124040.8037190473!2d-89.28825828751508!3d13.692940251786576!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f633049b4d1a089%3A0x6b63dbb28c89cbb6!2sSan%20Salvador!5e0!3m2!1ses!2ssv!4v1710000000000!5m2!1ses!2ssv" 
+              loading="lazy" 
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SOCIAL PROOF
+         ========================================================================== -->
+    <section class="reviews-section">
+      <div class="container">
+        <div class="section-header-row reveal">
+          <div>
+            <span class="section-eyebrow">La Opinión de Nuestra Gente</span>
+            <h2 class="section-title">Salvadoreños que Aman la Rapidez</h2>
+          </div>
+        </div>
+
+        <div class="reviews-grid">
+          <div class="review-card reveal">
+            <div class="stars">★★★★★</div>
+            <p class="review-text">"Literalmente llego al Auto-Pizza, pago y me entregan la caja humeando. Para resolver la cena con los cipotes un viernes no hay competencia."</p>
+            <div class="reviewer-meta">
+              <div class="reviewer-avatar">RC</div>
+              <div class="reviewer-info">
+                <h4>Roberto Calderón</h4>
+                <span>Cliente frecuente · Sucursal Merliot</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="review-card reveal">
+            <div class="stars">★★★★★</div>
+            <p class="review-text">"La masa tiene una consistencia crujiente muy buena y el Crazy Bread siempre sale caliente. Mantienen precios justos con un sabor consistente."</p>
+            <div class="reviewer-meta">
+              <div class="reviewer-avatar">GP</div>
+              <div class="reviewer-info">
+                <h4>Gabriela Palacios</h4>
+                <span>Reseña en Google Maps · Sucursal Los Héroes</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="review-card reveal">
+            <div class="stars">★★★★★</div>
+            <p class="review-text">"Para las reuniones del equipo en la oficina pedimos 6 pizzas familiares por Uber Eats y llegaron en menos de 25 minutos. Todo caliente y completo."</p>
+            <div class="reviewer-meta">
+              <div class="reviewer-avatar">MS</div>
+              <div class="reviewer-info">
+                <h4>Mauricio Salguero</h4>
+                <span>Pedido corporativo · Santa Tecla</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         ORDER BLOCK (THIRD PARTY APPS)
+         ========================================================================== -->
+    <section class="order-cta-section" id="pedir">
+      <div class="container">
+        <div class="order-cta-box reveal">
+          <h2 class="section-title">¿Hambre Ya? Te la Llevamos Hasta Tu Puerta</h2>
+          <p>
+            Disfruta de tus pizzas favoritas, combos y Crazy Bread® sin moverte de casa. Selecciona tu app de preferencia y pide ahora mismo.
+          </p>
+          <div class="delivery-buttons">
+            <a href="https://www.ubereats.com" target="_blank" rel="noopener noreferrer" class="btn-delivery ubereats">
+              <span>Pedir con</span> <strong>Uber Eats ↗</strong>
+            </a>
+            <a href="https://www.pedidosya.com.sv" target="_blank" rel="noopener noreferrer" class="btn-delivery pedidosya">
+              <span>Pedir con</span> <strong>PedidosYa ↗</strong>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>LITTLE CAESARS</h3>
+          <p>Pizza! Pizza! La franquicia preferida por las familias salvadoreñas que buscan sabor generoso, rapidez insuperable y valor real por su dinero.</p>
+          <div class="social-links">
+            <a href="https://facebook.com/littlecaesarses" target="_blank" rel="noopener noreferrer" class="social-pill" aria-label="Visitar Little Caesars El Salvador en Facebook">fb</a>
+            <a href="https://instagram.com/littlecaesarses" target="_blank" rel="noopener noreferrer" class="social-pill" aria-label="Visitar Little Caesars El Salvador en Instagram">ig</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navegación</h4>
+          <ul class="footer-links">
+            <li><a href="#hero">Inicio</a></li>
+            <li><a href="#menu">Menú de Pizzas</a></li>
+            <li><a href="#ingredientes">Proceso y Calidad</a></li>
+            <li><a href="#ubicaciones">Sucursales y Horarios</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Horarios Habituales</h4>
+          <ul class="footer-links">
+            <li>Lunes a Jueves: 10:00 AM - 9:00 PM</li>
+            <li>Viernes y Sábados: 10:00 AM - 10:00 PM</li>
+            <li>Domingos: 10:00 AM - 9:00 PM</li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Canales de Pedido</h4>
+          <ul class="footer-links">
+            <li><a href="https://www.pedidosya.com.sv" target="_blank" rel="noopener noreferrer">PedidosYa El Salvador</a></li>
+            <li><a href="https://www.ubereats.com" target="_blank" rel="noopener noreferrer">Uber Eats San Salvador</a></li>
+            <li>Auto-Pizza en sucursales seleccionadas</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Little Caesars Pizza El Salvador. Todos los derechos reservados. Hot-N-Ready®, Crazy Bread® y Pizza! Pizza! son marcas registradas de Little Caesar Enterprises, Inc.</p>
+        <p>Sitio rediseñado bajo estándares de accesibilidad WCAG 2.1 AA y SEO Semántico.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       JAVASCRIPT VANILLA LIVIANO & EFICIENTE
+       ========================================================================== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Mobile Menu Drawer Toggle
+      const menuToggle = document.getElementById('menuToggle');
+      const mobileDrawer = document.getElementById('mobileDrawer');
+      const mobileLinks = document.querySelectorAll('.mobile-link');
+
+      const toggleMenu = () => {
+        const isOpen = mobileDrawer.classList.toggle('is-open');
+        menuToggle.setAttribute('aria-expanded', isOpen);
+        mobileDrawer.setAttribute('aria-hidden', !isOpen);
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+      };
+
+      menuToggle.addEventListener('click', toggleMenu);
+
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          if (mobileDrawer.classList.contains('is-open')) {
+            toggleMenu();
+          }
+        });
+      });
+
+      // 2. Intersection Observer para Scroll Reveal de Alto Rendimiento
+      const revealElements = document.querySelectorAll('.reveal');
+
+      if ('IntersectionObserver' in window) {
+        const observerOptions = {
+          root: null,
+          threshold: 0.12,
+          rootMargin: '0px 0px -40px 0px'
+        };
+
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target); // Dejar de observar una vez mostrado
+            }
+          });
+        }, observerOptions);
+
+        revealElements.forEach(el => revealObserver.observe(el));
+      } else {
+        // Fallback inmediato si el navegador no soporta IntersectionObserver
+        revealElements.forEach(el => el.classList.add('is-visible'));
+      }
+
+      // 3. Header Shrink al hacer scroll
+      const header = document.getElementById('header');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          header.style.boxShadow = '0 8px 20px rgba(0,0,0,0.06)';
+        } else {
+          header.style.boxShadow = 'none';
+        }
+      }, { passive: true });
+    });
+  </script>
+</body>
+</html>
