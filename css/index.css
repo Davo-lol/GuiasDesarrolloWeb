@@ -1,0 +1,350 @@
+/* ==================== Colores ==================== */
+:root {
+    --cafe-oscuro: #4E342E;
+    --cafe: #6D4C41;
+    --cobre: #B5652D;
+    --cobre-claro: #E0A46C;
+    --crema: #F1E9DC;
+
+    --fondo: var(--crema);
+    --superficie: #FFFFFF;
+    --texto: #3B2A24;
+    --texto-suave: #6B5C52;
+    --borde: #E2D5C3;
+    --sombra: 0 1px 2px rgba(78, 52, 46, 0.06), 0 8px 24px rgba(78, 52, 46, 0.08);
+    --sombra-hover: 0 2px 4px rgba(78, 52, 46, 0.08), 0 16px 32px rgba(78, 52, 46, 0.14);
+    --ia: #2E6F68;
+    --ia-fondo: #E0F0EE;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --fondo: #1C1513;
+        --superficie: #2A201C;
+        --texto: #F1E9DC;
+        --texto-suave: #C4B4A6;
+        --borde: #3E302A;
+        --cobre: #E0A46C;
+        --sombra: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.25);
+        --sombra-hover: 0 2px 4px rgba(0, 0, 0, 0.35), 0 16px 32px rgba(0, 0, 0, 0.4);
+        --ia: #7FCFC4;
+        --ia-fondo: #1F3532;
+    }
+}
+
+/* ==================== Base ==================== */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: "Work Sans", "Segoe UI", system-ui, sans-serif;
+    background-color: var(--fondo);
+    color: var(--texto);
+    line-height: 1.55;
+}
+
+h1,
+h2,
+h3 {
+    font-family: "Fraunces", Georgia, "Times New Roman", serif;
+}
+
+/* ==================== Portada ==================== */
+#banner {
+    background:
+        radial-gradient(circle at 85% 10%, rgba(224, 164, 108, 0.35), transparent 45%),
+        linear-gradient(135deg, var(--cafe-oscuro) 0%, #3A2621 100%);
+    color: var(--crema);
+    padding: 72px 20px 64px;
+}
+
+.banner-contenido {
+    max-width: 1040px;
+    margin: 0 auto;
+}
+
+.etiqueta-banner {
+    display: inline-block;
+    margin: 0 0 16px;
+    padding: 4px 12px;
+    border: 1px solid rgba(241, 233, 220, 0.35);
+    border-radius: 999px;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+}
+
+#titulo-portada {
+    font-size: clamp(38px, 7vw, 64px);
+    line-height: 1.05;
+    margin: 0 0 12px;
+}
+
+.subtexto {
+    font-size: 17px;
+    color: rgba(241, 233, 220, 0.85);
+    margin: 0;
+}
+
+.resumen {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 32px;
+    padding: 0;
+    margin: 32px 0 0;
+    font-size: 14px;
+    color: rgba(241, 233, 220, 0.8);
+}
+
+.resumen-numero {
+    display: block;
+    font-family: "Fraunces", Georgia, serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--cobre-claro);
+}
+
+/* ==================== Menú de guías ==================== */
+.menu-guias {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    overflow-x: auto;
+    padding: 12px 16px;
+    background-color: var(--superficie);
+    border-bottom: 1px solid var(--borde);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.menu-guias a {
+    flex-shrink: 0;
+    padding: 8px 16px;
+    border-radius: 999px;
+    color: var(--texto);
+    font-weight: 600;
+    font-size: 14px;
+    text-decoration: none;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.menu-guias a span {
+    font-weight: 400;
+    color: var(--texto-suave);
+    margin-left: 4px;
+}
+
+.menu-guias a:hover {
+    background-color: var(--cobre);
+    color: #FFFFFF;
+}
+
+.menu-guias a:hover span {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+/* ==================== Secciones por guía ==================== */
+.contenedor-principal {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 24px 20px 40px;
+}
+
+.guia {
+    padding-top: 48px;
+    scroll-margin-top: 56px;
+}
+
+.guia + .guia {
+    border-top: 1px solid var(--borde);
+    margin-top: 48px;
+}
+
+.guia-encabezado {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 8px;
+}
+
+.guia-numero {
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    background-color: var(--cafe-oscuro);
+    color: var(--cobre-claro);
+    font-family: "Fraunces", Georgia, serif;
+    font-size: 26px;
+    font-weight: 700;
+}
+
+.guia-titulo {
+    margin: 0;
+    font-size: clamp(24px, 4vw, 32px);
+    color: var(--texto);
+}
+
+.guia-tema {
+    margin: 4px 0 0;
+    color: var(--texto-suave);
+}
+
+.titulo-seccion {
+    font-size: 18px;
+    color: var(--cobre);
+    margin: 32px 0 14px;
+}
+
+/* ==================== Tarjetas ==================== */
+.lista-tarjetas {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 16px;
+}
+
+.tarjeta {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 20px 20px 40px;
+    background-color: var(--superficie);
+    border: 1px solid var(--borde);
+    border-radius: 14px;
+    box-shadow: var(--sombra);
+    color: inherit;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.tarjeta::after {
+    content: "Ver →";
+    position: absolute;
+    left: 20px;
+    bottom: 14px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--cobre);
+    transition: transform 0.2s;
+}
+
+.tarjeta:hover,
+.tarjeta:focus-visible {
+    transform: translateY(-3px);
+    box-shadow: var(--sombra-hover);
+    border-color: var(--cobre);
+    outline: none;
+}
+
+.tarjeta:hover::after {
+    transform: translateX(4px);
+}
+
+.tarjeta.destacada {
+    border-left: 4px solid var(--cobre);
+}
+
+.tipo {
+    align-self: flex-start;
+    padding: 2px 10px;
+    border-radius: 999px;
+    background-color: var(--fondo);
+    color: var(--texto-suave);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+.tipo-ia {
+    background-color: var(--ia-fondo);
+    color: var(--ia);
+}
+
+.titulo-tarjeta {
+    font-family: "Fraunces", Georgia, serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--texto);
+}
+
+.descripcion-tarjeta {
+    color: var(--texto-suave);
+    font-size: 14px;
+}
+
+/* ==================== Videos ==================== */
+.contenedor-video {
+    max-width: 720px;
+    aspect-ratio: 16 / 9;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: var(--sombra);
+    background-color: #000000;
+}
+
+.contenedor-video iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
+/* ==================== Pie de página ==================== */
+.pie {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px;
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 24px 20px 40px;
+    border-top: 1px solid var(--borde);
+    color: var(--texto-suave);
+    font-size: 14px;
+}
+
+.pie p {
+    margin: 0;
+}
+
+.pie a {
+    color: var(--cobre);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+/* ==================== Pantallas pequeñas ==================== */
+@media (max-width: 640px) {
+    #banner {
+        padding: 48px 16px 40px;
+    }
+
+    .menu-guias {
+        justify-content: flex-start;
+    }
+
+    .menu-guias a span {
+        display: none;
+    }
+
+    .contenedor-principal {
+        padding: 8px 16px 32px;
+    }
+
+    .guia-numero {
+        width: 52px;
+        height: 52px;
+        font-size: 21px;
+    }
+}

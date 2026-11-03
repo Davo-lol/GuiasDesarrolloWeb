@@ -3,92 +3,253 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Titanes del Pacífico - Proyectos</title>
+    <title>Portafolio Desarrollo Web I - David Argueta Valles</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
 
     <header id="banner">
-        <h1 id="titulo-portada">Ingeniería de Software - Desarrollo Web I</h1>
-        <p class="subtexto">Portafolio de prácticas - Guía de laboratorio Nº1</p>
+        <div class="banner-contenido">
+            <p class="etiqueta-banner">Portafolio de prácticas · Carnet 20255755</p>
+            <h1 id="titulo-portada">Desarrollo Web I</h1>
+            <p class="subtexto">Ingeniería de Software y Negocios Digitales — David Argueta Valles</p>
+
+            <ul class="resumen">
+                <li><span class="resumen-numero">4</span> guías publicadas</li>
+                <li><span class="resumen-numero">HTML</span> CSS · JavaScript · Bootstrap</li>
+            </ul>
+        </div>
     </header>
 
-    <div class="contenedor-principal">
+    <nav class="menu-guias" aria-label="Guías">
+        <a href="#guia1">Guía 1 <span>HTML y CSS</span></a>
+        <a href="#guia3">Guía 3 <span>Posicionamiento</span></a>
+        <a href="#guia5">Guía 5 <span>Intro a JS</span></a>
+        <a href="#guia6">Guía 6 <span>Funciones y eventos</span></a>
+    </nav>
 
-        <h2 class="titulo-seccion">Ejercicios guiados realizados en la guía número 1</h2>
-        <div class="lista-tarjetas">
-            <div class="tarjeta">
-                <a href="Guia1/estilos_embebidos.html" class="titulo-tarjeta">Ejercicio 1: Estilos embebidos</a>
-                <p class="descripcion-tarjeta">Este es el primer sitio web realizado en la guía, usando la propiedad style en las etiquetas HTML.</p>
+    <main class="contenedor-principal">
+
+        <!-- ==================== GUIA 1 ==================== -->
+        <section class="guia" id="guia1">
+            <header class="guia-encabezado">
+                <span class="guia-numero">01</span>
+                <div>
+                    <h2 class="guia-titulo">Introducción a HTML y CSS</h2>
+                    <p class="guia-tema">Estilos embebidos, etiqueta style y hojas de estilo externas.</p>
+                </div>
+            </header>
+
+            <h3 class="titulo-seccion">Ejercicios guiados</h3>
+            <div class="lista-tarjetas">
+                <a href="Guia1/estilos_embebidos.html" class="tarjeta">
+                    <span class="tipo">Ejemplo 1</span>
+                    <span class="titulo-tarjeta">Estilos embebidos</span>
+                    <span class="descripcion-tarjeta">Primer sitio de la guía, usando la propiedad style en las etiquetas HTML.</span>
+                </a>
+                <a href="Guia1/ejemplo2.html" class="tarjeta">
+                    <span class="tipo">Ejemplo 2</span>
+                    <span class="titulo-tarjeta">Etiqueta style</span>
+                    <span class="descripcion-tarjeta">Reglas CSS escritas dentro de la etiqueta style del documento.</span>
+                </a>
+                <a href="Guia1/paises.html" class="tarjeta">
+                    <span class="tipo">Ejemplo 3</span>
+                    <span class="titulo-tarjeta">Centroamérica</span>
+                    <span class="descripcion-tarjeta">Sitio con una hoja de estilo externa enlazada.</span>
+                </a>
             </div>
-            <div class="tarjeta">
-                <a href="Guia1/ejemplo2.html" class="titulo-tarjeta">Ejercicio 2: Etiqueta style</a>
-                <p class="descripcion-tarjeta">Este es el segundo sitio web realizado en la guía, usando reglas CSS dentro de la etiqueta style.</p>
+
+            <h3 class="titulo-seccion">Complementario y Reto IA</h3>
+            <div class="lista-tarjetas">
+                <a href="Guia1/paginawebserie.html" class="tarjeta destacada">
+                    <span class="tipo">Complementario</span>
+                    <span class="titulo-tarjeta">Titanes del Pacífico</span>
+                    <span class="descripcion-tarjeta">Sitio web creado por mi persona sobre mi película favorita.</span>
+                </a>
+                <a href="Guia1/RetoIA/index.html" class="tarjeta">
+                    <span class="tipo tipo-ia">Reto IA</span>
+                    <span class="titulo-tarjeta">Prompt no elaborado</span>
+                    <span class="descripcion-tarjeta">Página generada con una instrucción sencilla.</span>
+                </a>
+                <a href="Guia1/RetoIA/versionpro.html" class="tarjeta">
+                    <span class="tipo tipo-ia">Reto IA</span>
+                    <span class="titulo-tarjeta">Prompt elaborado</span>
+                    <span class="descripcion-tarjeta">Página generada con una instrucción detallada, para comparar resultados.</span>
+                </a>
             </div>
-            <div class="tarjeta">
-                <a href="Guia1/paises.html" class="titulo-tarjeta">Ejercicio 3: Centroamérica</a>
-                <p class="descripcion-tarjeta">Este es el tercer sitio web realizado en la guía, usando una hoja de estilo externa.</p>
+
+            <h3 class="titulo-seccion">Video explicativo</h3>
+            <div class="contenedor-video">
+                <iframe src="https://www.youtube.com/embed/A7ElQg_uCoI" title="Video explicativo del Reto IA"
+                    loading="lazy" allowfullscreen></iframe>
             </div>
-        </div>
+        </section>
 
-        <h2 class="titulo-seccion">Ejercicio complementario</h2>
-        <div class="lista-tarjetas">
-            <div class="tarjeta">
-                <a href="Guia1/paginawebserie.html" class="titulo-tarjeta">Titanes del Pacífico</a>
-                <p class="descripcion-tarjeta">Sitio web creado por mi persona en el que hablo un poco de mi película favorita.</p>
+        <!-- ==================== GUIA 3 ==================== -->
+        <section class="guia" id="guia3">
+            <header class="guia-encabezado">
+                <span class="guia-numero">03</span>
+                <div>
+                    <h2 class="guia-titulo">Posicionamiento y Flexbox</h2>
+                    <p class="guia-tema">Posición relativa, absoluta, sticky y fija, Flexbox y z-index.</p>
+                </div>
+            </header>
+
+            <h3 class="titulo-seccion">Ejercicios guiados</h3>
+            <div class="lista-tarjetas">
+                <a href="20255755_Guia3/ejemplo1/index.html" class="tarjeta">
+                    <span class="tipo">Ejemplo 1</span>
+                    <span class="titulo-tarjeta">Maravillas del mundo</span>
+                    <span class="descripcion-tarjeta">Posicionamiento CSS (relativo, absoluto, sticky y fijo) y Flexbox para las tarjetas.</span>
+                </a>
+                <a href="20255755_Guia3/ejemplo2/index.html" class="tarjeta">
+                    <span class="tipo">Ejemplo 2</span>
+                    <span class="titulo-tarjeta">Menú lateral desplegable</span>
+                    <span class="descripcion-tarjeta">Menú que se abre y se cierra sin JavaScript, usando un checkbox y :checked.</span>
+                </a>
             </div>
-        </div>
 
-        <h2 class="titulo-seccion">Reto IA</h2>
-        <div class="lista-tarjetas">
-            <div class="tarjeta">
-                <a href="Guia1/RetoIA/index.html" class="titulo-tarjeta">Página hecha con un prompt no elaborado</a>
+            <h3 class="titulo-seccion">Complementario y Reto IA</h3>
+            <div class="lista-tarjetas">
+                <a href="20255755_Guia3/ejercicio/ejercicio1.html" class="tarjeta destacada">
+                    <span class="tipo">Complementario</span>
+                    <span class="titulo-tarjeta">Escalera de cartas: el as al frente</span>
+                    <span class="descripcion-tarjeta">Posicionamiento absoluto y la propiedad z-index.</span>
+                </a>
+                <a href="20255755_Guia3/ejercicio/ejercicio2.html" class="tarjeta destacada">
+                    <span class="tipo">Complementario</span>
+                    <span class="titulo-tarjeta">Escalera de cartas: el diez al frente</span>
+                    <span class="descripcion-tarjeta">La misma escalera con el orden de apilado invertido.</span>
+                </a>
+                <a href="20255755_Guia3/retoIA/index.html" class="tarjeta">
+                    <span class="tipo tipo-ia">Reto IA</span>
+                    <span class="titulo-tarjeta">Página con CSS Grid</span>
+                    <span class="descripcion-tarjeta">Maquetación con CSS Grid hecha con ayuda de IA.</span>
+                </a>
             </div>
-                    <div class="tarjeta">
-                <a href="Guia1/RetoIA/versionpro.html" class="titulo-tarjeta">Página hecha con un prompt elaborado</a>
+
+            <h3 class="titulo-seccion">Video explicativo</h3>
+            <div class="contenedor-video">
+                <iframe src="https://www.youtube.com/embed/rG21vUqP6VA" title="Video Reto IA Guía 3 - David Argueta Valles"
+                    loading="lazy" allowfullscreen></iframe>
             </div>
-        </div>
-                <h2 class="titulo-seccion">Video explicativo</h2>
-        <div class="contenedor-video">
-            <iframe
-                src="https://www.youtube.com/embed/A7ElQg_uCoI"
-                title="Video explicativo del Reto IA"
-                allowfullscreen>
-            </iframe>
-        </div>
-    </div>
+        </section>
 
-    <h2>Ejercicios guiados realizados en la guía número 3</h2>
+        <!-- ==================== GUIA 5 ==================== -->
+        <section class="guia" id="guia5">
+            <header class="guia-encabezado">
+                <span class="guia-numero">05</span>
+                <div>
+                    <h2 class="guia-titulo">Introducción a JavaScript</h2>
+                    <p class="guia-tema">alert, prompt y confirm, manipulación del DOM y arreglos de objetos.</p>
+                </div>
+            </header>
 
-<a href="20255755_Guia3/ejemplo1/index.html">Ejemplo 1: Maravillas del mundo</a>
-<p>Este es el primer sitio web realizado en la guía, usando posicionamiento CSS (relativo, absoluto, sticky y fijo) y Flexbox para las tarjetas.</p>
+            <h3 class="titulo-seccion">Ejercicios guiados</h3>
+            <div class="lista-tarjetas">
+                <a href="Guia5_20255755/index.html" class="tarjeta">
+                    <span class="tipo">Ejemplos 1 al 4</span>
+                    <span class="titulo-tarjeta">Interactuando con JavaScript</span>
+                    <span class="descripcion-tarjeta">Funciones alert, prompt y confirm, tabla creada con JavaScript, adivinar un número y operaciones básicas.</span>
+                </a>
+            </div>
 
-<a href="20255755_Guia3/ejemplo2/index.html">Ejemplo 2: Menú lateral desplegable</a>
-<p>Este es el segundo sitio web realizado en la guía, con un menú lateral que se abre y se cierra sin JavaScript, usando un checkbox y la pseudoclase :checked.</p>
+            <h3 class="titulo-seccion">Ejercicio complementario</h3>
+            <div class="lista-tarjetas">
+                <a href="Guia5_20255755/pages/pedidos.html" class="tarjeta destacada">
+                    <span class="tipo">Complementario 2</span>
+                    <span class="titulo-tarjeta">Pedidos de una cafetería</span>
+                    <span class="descripcion-tarjeta">Registro de pedidos en un arreglo de objetos, con filtro por precio, totales automáticos y tabla generada con JavaScript.</span>
+                </a>
+            </div>
+        </section>
 
-<h2>Ejercicio complementario (Guía 3)</h2>
+        <!-- ==================== GUIA 6 ==================== -->
+        <section class="guia" id="guia6">
+            <header class="guia-encabezado">
+                <span class="guia-numero">06</span>
+                <div>
+                    <h2 class="guia-titulo">Funciones y eventos en JavaScript</h2>
+                    <p class="guia-tema">Estructuras de control, arreglos, funciones, recursividad, eventos y Bootstrap.</p>
+                </div>
+            </header>
 
-<a href="20255755_Guia3/ejercicio/ejercicio1.html">Resultado 1: Escalera de cartas (el as al frente)</a><br>
-<a href="20255755_Guia3/ejercicio/ejercicio2.html">Resultado 2: Escalera de cartas (el diez al frente)</a>
-<p>Ejercicio realizado con posicionamiento absoluto y la propiedad z-index.</p>
+            <h3 class="titulo-seccion">Parte I: Estructuras de control y arreglos</h3>
+            <div class="lista-tarjetas">
+                <a href="Guia6_20255755/index.html" class="tarjeta">
+                    <span class="tipo">Ejemplo 1</span>
+                    <span class="titulo-tarjeta">Índice del sitio</span>
+                    <span class="descripcion-tarjeta">Página de inicio con menú lateral de Bootstrap.</span>
+                </a>
+                <a href="Guia6_20255755/pages/registroAcademico.html" class="tarjeta">
+                    <span class="tipo">Ejemplo 2</span>
+                    <span class="titulo-tarjeta">Registro académico</span>
+                    <span class="descripcion-tarjeta">Arreglo multidimensional de estudiantes recorrido con for.</span>
+                </a>
+                <a href="Guia6_20255755/pages/tablasMultiplicar.html" class="tarjeta">
+                    <span class="tipo">Ejemplo 3</span>
+                    <span class="titulo-tarjeta">Tablas de multiplicar</span>
+                    <span class="descripcion-tarjeta">Tabla del 1 al 12 generada con un ciclo do...while.</span>
+                </a>
+                <a href="Guia6_20255755/pages/promedioNotas.html" class="tarjeta">
+                    <span class="tipo">Ejemplo 4</span>
+                    <span class="titulo-tarjeta">Promedio de notas</span>
+                    <span class="descripcion-tarjeta">Ciclos anidados y for...of para el promedio y la mejor calificación.</span>
+                </a>
+                <a href="Guia6_20255755/pages/arreglo.html" class="tarjeta">
+                    <span class="tipo">Ejemplo 5</span>
+                    <span class="titulo-tarjeta">Trabajando con arreglos</span>
+                    <span class="descripcion-tarjeta">Elementos creados con la API DOM y arreglo ordenado con sort().</span>
+                </a>
+            </div>
 
-<h2>Reto IA (Guía 3)</h2>
+            <h3 class="titulo-seccion">Parte II: Funciones</h3>
+            <div class="lista-tarjetas">
+                <a href="Guia6_20255755/indexFunciones.html" class="tarjeta">
+                    <span class="tipo">Ejemplo 1</span>
+                    <span class="titulo-tarjeta">Índice de funciones</span>
+                    <span class="descripcion-tarjeta">Declaración de una función básica y menú superior.</span>
+                </a>
+                <a href="Guia6_20255755/pages/recursividad.html" class="tarjeta">
+                    <span class="tipo">Ejemplo 2</span>
+                    <span class="titulo-tarjeta">Recursividad</span>
+                    <span class="descripcion-tarjeta">Factorial recursivo, funciones anónimas, de flecha y el evento keypress.</span>
+                </a>
+                <a href="Guia6_20255755/pages/tabla.html" class="tarjeta">
+                    <span class="tipo">Ejemplo 3</span>
+                    <span class="titulo-tarjeta">Tabla con funciones</span>
+                    <span class="descripcion-tarjeta">Tabla HTML generada desde un modal de Bootstrap con onclick.</span>
+                </a>
+                <a href="Guia6_20255755/pages/formulario.html" class="tarjeta">
+                    <span class="tipo">Ejemplo 4</span>
+                    <span class="titulo-tarjeta">Expediente médico</span>
+                    <span class="descripcion-tarjeta">Formulario de pacientes con modal para nuevos países y notificaciones.</span>
+                </a>
+            </div>
 
-<a href="20255755_Guia3/retoIA/index.html">Página con CSS Grid hecha con IA</a>
+            <h3 class="titulo-seccion">Ejercicios complementarios</h3>
+            <div class="lista-tarjetas">
+                <a href="Guia6_20255755/pages/formulario.html" class="tarjeta destacada">
+                    <span class="tipo">Complementarios 1 y 2</span>
+                    <span class="titulo-tarjeta">Editar, eliminar y LocalStorage</span>
+                    <span class="descripcion-tarjeta">Los botones Editar y Eliminar de la tabla de pacientes funcionan y los datos se conservan al recargar.</span>
+                </a>
+                <a href="Guia6_20255755/pages/fichaEstudiante.html" class="tarjeta destacada">
+                    <span class="tipo">Complementario 3</span>
+                    <span class="titulo-tarjeta">Expresiones regulares</span>
+                    <span class="descripcion-tarjeta">Investigación y ficha del estudiante validada: carnet, nombre, DUI, NIT, fecha, correo y edad.</span>
+                </a>
+            </div>
+        </section>
+    </main>
 
-<h2>Video explicativo (Guía 3)</h2>
-
-<iframe src="https://www.youtube.com/embed/rG21vUqP6VA" title="Video Reto IA Guía 3 - David Argueta Valles" allowfullscreen></iframe>
-
-<h2>Ejercicios guiados realizados en la guía número 5 (Introducción a JavaScript)</h2>
-
-<a href="Guia5_20255755/index.html">Ejemplos 1 al 4: Interacción, tablas, número aleatorio y operaciones básicas</a>
-<p>Página de inicio de la guía con los ejemplos guiados: funciones alert, prompt y confirm, tabla creada con JavaScript, juego para adivinar un número y operaciones básicas.</p>
-
-<h2>Ejercicios complementarios (Guía 5)</h2>
-
-<a href="Guia5_20255755/pages/pedidos.html">Ejercicio 2: Gestión de pedidos de una cafetería</a>
-<p>Aplicación que registra pedidos en un arreglo de objetos, con filtro por precio, totales automáticos y tabla generada con JavaScript.</p>
+    <footer class="pie">
+        <p>David Argueta Valles · 20255755 · Desarrollo Web I</p>
+        <a href="#banner">Volver arriba ↑</a>
+    </footer>
 
 </body>
 </html>

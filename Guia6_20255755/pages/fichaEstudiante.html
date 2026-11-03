@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../css/stylesFunciones.css" rel="stylesheet" />
+    <link rel="icon" href="../img/js.png" sizes="32x32" type="image/png" />
+    <title>Validación con expresiones regulares</title>
+</head>
+
+<body>
+    <header>
+        <div class="px-3 py-2 text-bg-dark fixed-top">
+            <div class="container">
+                <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                    <a href="../indexFunciones.html"
+                        class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
+                        <img src="../img/js.png" alt="" width="32" height="32" class="me-2" />
+                    </a>
+
+                    <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small nav-bar">
+                        <li class="text-center">
+                            <a href="recursividad.html" class="nav-link text-white">
+                                <i class="bi bi-arrow-clockwise bi-2 d-block"></i>
+                                Recursividad
+                            </a>
+                        </li>
+                        <li class="text-center">
+                            <a href="tabla.html" class="nav-link text-white">
+                                <i class="bi bi-table bi-2 d-block"></i>
+                                Creando una Tabla
+                            </a>
+                        </li>
+                        <li class="text-center">
+                            <a href="formulario.html" class="nav-link text-white">
+                                <i class="bi bi-ui-checks bi-2 d-block"></i>
+                                Formulario
+                            </a>
+                        </li>
+                        <li class="text-center nav-bar-li-active">
+                            <a href="fichaEstudiante.html" class="nav-link text-white">
+                                <i class="bi bi-patch-check bi-2 d-block"></i>
+                                Validación
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container-lg">
+        <!-- INVESTIGACION: EXPRESIONES REGULARES -->
+        <div class="row">
+            <div class="col-12 shadow-lg p-3 mt-5 bg-body rounded">
+                <h3>Expresiones regulares en JavaScript</h3>
+                <p>
+                    Una <span class="fw-bold">expresión regular</span> es un patrón que describe un conjunto de
+                    cadenas de texto. En JavaScript son objetos <code>RegExp</code> y se utilizan para buscar,
+                    validar o reemplazar texto. Son muy útiles para comprobar que la información que escribe el
+                    usuario en un formulario tenga el formato correcto antes de procesarla.
+                </p>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h5>Formas de crearlas</h5>
+                        <p class="mb-1">Literal, entre barras (la más común):</p>
+                        <p><code>const patron = /^[0-9]{4}$/;</code></p>
+                        <p class="mb-1">Con el constructor, útil cuando el patrón se arma con texto:</p>
+                        <p><code>const patron = new RegExp("^[0-9]{4}$");</code></p>
+
+                        <h5>Métodos más utilizados</h5>
+                        <ul>
+                            <li><code>patron.test(texto)</code>: devuelve <code>true</code> o <code>false</code>
+                                si el texto cumple el patrón.</li>
+                            <li><code>texto.match(patron)</code>: devuelve las coincidencias encontradas.</li>
+                            <li><code>texto.replace(patron, nuevo)</code>: reemplaza las coincidencias.</li>
+                            <li><code>patron.exec(texto)</code>: devuelve la coincidencia y sus grupos.</li>
+                        </ul>
+
+                        <h5>Banderas (flags)</h5>
+                        <ul>
+                            <li><code>i</code>: no distingue mayúsculas de minúsculas.</li>
+                            <li><code>g</code>: busca todas las coincidencias, no solo la primera.</li>
+                            <li><code>m</code>: <code>^</code> y <code>$</code> trabajan por cada línea.</li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-6">
+                        <h5>Símbolos básicos</h5>
+                        <div class="table-responsive">
+                            <table class="table table-sm table-striped table-bordered">
+                                <tr>
+                                    <th class="text-center" style="width: 25%">Símbolo</th>
+                                    <th>Significado</th>
+                                </tr>
+                                <tr>
+                                    <td class="text-center"><code>^</code> y <code>$</code></td>
+                                    <td>Inicio y final del texto</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center"><code>\d</code></td>
+                                    <td>Un dígito del 0 al 9</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center"><code>[A-Z]</code></td>
+                                    <td>Un carácter dentro del rango indicado</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center"><code>{n}</code> / <code>{n,m}</code></td>
+                                    <td>Exactamente n veces / entre n y m veces</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center"><code>+</code> / <code>*</code> / <code>?</code></td>
+                                    <td>Una o más / cero o más / cero o una vez</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center"><code>\s</code></td>
+                                    <td>Un espacio en blanco</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center"><code>( )</code> y <code>|</code></td>
+                                    <td>Agrupar y alternativa (uno u otro)</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center"><code>\.</code></td>
+                                    <td>Un punto literal (se escapa con <code>\</code>)</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FORMULARIO DE LA FICHA DEL ESTUDIANTE -->
+        <div class="row">
+            <div class="col-12 shadow-lg p-3 mt-5 bg-body rounded">
+                <h3>Ficha del estudiante</h3>
+                <p class="text-body-secondary">
+                    Cada campo se valida mientras escribe. El patrón utilizado aparece debajo de cada campo.
+                </p>
+                <form id="idFormFicha" novalidate>
+                    <div class="row g-3">
+                        <div class="col-lg-4">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="idTxtCarnet" placeholder="Carnet"
+                                    maxlength="5" data-campo="carnet" />
+                                <label for="idTxtCarnet"><i class="bi bi-person-vcard"></i> Carnet</label>
+                                <div class="invalid-feedback">Dos letras y tres números. Ejemplo: AB001</div>
+                            </div>
+                            <small class="text-body-secondary"><code>/^[A-Z]{2}\d{3}$/</code></small>
+                        </div>
+                        <div class="col-lg-8">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="idTxtNombreCompleto"
+                                    placeholder="Nombre completo" data-campo="nombre" />
+                                <label for="idTxtNombreCompleto"><i class="bi bi-person-circle"></i> Nombre
+                                    completo</label>
+                                <div class="invalid-feedback">Nombre y apellido, solo letras y espacios.</div>
+                            </div>
+                            <small class="text-body-secondary"><code>/^[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+(\s[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+)+$/</code></small>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="idTxtDui" placeholder="DUI"
+                                    maxlength="10" data-campo="dui" />
+                                <label for="idTxtDui"><i class="bi bi-credit-card-2-front"></i> Número de DUI</label>
+                                <div class="invalid-feedback">Formato ########-#. Ejemplo: 01234567-8</div>
+                            </div>
+                            <small class="text-body-secondary"><code>/^\d{8}-\d$/</code></small>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="idTxtNit" placeholder="NIT"
+                                    maxlength="17" data-campo="nit" />
+                                <label for="idTxtNit"><i class="bi bi-file-earmark-text"></i> Número de NIT</label>
+                                <div class="invalid-feedback">Formato ####-######-###-#. Ejemplo: 0614-010190-101-1
+                                </div>
+                            </div>
+                            <small class="text-body-secondary"><code>/^\d{4}-\d{6}-\d{3}-\d$/</code></small>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="idTxtFecha" placeholder="dd/mm/aaaa"
+                                    maxlength="10" data-campo="fecha" />
+                                <label for="idTxtFecha"><i class="bi bi-calendar-date"></i> Fecha de nacimiento
+                                    (dd/mm/aaaa)</label>
+                                <div class="invalid-feedback">Use día/mes/año con una fecha real. Ejemplo: 25/08/2004
+                                </div>
+                            </div>
+                            <small class="text-body-secondary"><code>/^(0[1-9]|[12]\d|3[01])\/(0[1-9]|1[0-2])\/\d{4}$/</code></small>
+                        </div>
+                        <div class="col-lg-8">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="idTxtCorreo" placeholder="Correo"
+                                    data-campo="correo" />
+                                <label for="idTxtCorreo"><i class="bi bi-envelope"></i> Correo electrónico</label>
+                                <div class="invalid-feedback">Ejemplo: estudiante@correo.com</div>
+                            </div>
+                            <small class="text-body-secondary"><code>/^[\w.+-]+@[\w-]+(\.[\w-]+)*\.[A-Za-z]{2,}$/</code></small>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="idTxtEdad" placeholder="Edad"
+                                    maxlength="3" inputmode="numeric" data-campo="edad" />
+                                <label for="idTxtEdad"><i class="bi bi-123"></i> Edad</label>
+                                <div class="invalid-feedback">Solo números.</div>
+                            </div>
+                            <small class="text-body-secondary"><code>/^\d{1,3}$/</code></small>
+                        </div>
+                    </div>
+                    <div class="pt-3">
+                        <button id="idBtnValidar" type="button" class="btn btn-success">
+                            <i class="bi bi-check2-circle"></i> Validar y guardar
+                        </button>
+                        <button id="idBtnLimpiarFicha" type="button" class="btn btn-danger">
+                            <i class="bi bi-trash"></i> Limpiar formulario
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="col-12 shadow-lg p-3 mt-5 mb-5 bg-body rounded">
+                <h3>Estudiantes validados</h3>
+                <div id="idTablaEstudiantes">
+                    Ninguno
+                </div>
+            </div>
+        </div>
+
+        <!-- PERMITE MOSTRAR NOTIFICACIONES -->
+        <div class="toast-container top-0 start-50 translate-middle-x pt-4 mt-1" style="z-index: 1035;">
+            <div id="idNotificacion" class="toast text-bg-success" role="alert" aria-live="assertive"
+                aria-atomic="true">
+                <div class="toast-header">
+                    <i class="bi bi-bell"></i>
+                    <strong class="me-auto">Notificacion</strong>
+                    <small>Hace un momento</small>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div class="toast-body" id="idMensaje">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/fichaEstudiante.js" defer></script>
+</body>
+
+</html>
