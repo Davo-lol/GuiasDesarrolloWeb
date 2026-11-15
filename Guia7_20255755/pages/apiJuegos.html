@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../css/styles.css" rel="stylesheet" />
+    <link href="../css/apiJuegos.css" rel="stylesheet" />
+    <link rel="icon" href="../img/js.png" sizes="32x32" type="image/png" />
+    <title>Juegos gratis con RapidAPI</title>
+</head>
+
+<body>
+
+    <header class="p-3 text-bg-dark">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <a href="../index.html" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                    <img src="../img/js.png" class="bi me-2" width="48" height="48" alt="Inicio">
+                </a>
+
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                    <li><a href="../pages/ejemplo1.html" class="nav-link px-2 text-white">Ejemplo 1</a></li>
+                    <li><a href="../pages/ejemplo2.html" class="nav-link px-2 text-white">Ejemplo 2</a></li>
+                    <li><a href="../pages/ejemplo3.html" class="nav-link px-2 text-white">Ejemplo 3</a></li>
+                    <li><a href="../pages/ejemplo4.html" class="nav-link px-2 text-white">Ejemplo 4</a></li>
+                    <li><a href="../pages/apiJuegos.html" class="nav-link px-2 text-warning fw-bold">
+                            <i class="bi bi-check"></i> API Juegos
+                        </a></li>
+                </ul>
+
+                <div class="text-end">
+                    <button type="button" id="idBtnCambiarClave" class="btn btn-outline-light d-none">
+                        <i class="bi bi-key"></i> Cambiar clave
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container py-5">
+        <div class="text-center mb-4">
+            <h1 class="display-5 fw-bold">Juegos gratis para PC y navegador</h1>
+            <p class="lead text-body-secondary">
+                Datos obtenidos de la API <span class="fw-bold">Free-to-Play Games Database</span> de RapidAPI
+                con Fetch y async/await.
+            </p>
+        </div>
+
+        <!-- PANEL PARA INGRESAR LA CLAVE DE RAPIDAPI -->
+        <div id="idPanelClave" class="card shadow-sm mx-auto d-none" style="max-width: 640px;">
+            <div class="card-body p-4">
+                <h2 class="h4 fw-bold"><i class="bi bi-key"></i> Clave de RapidAPI</h2>
+                <p class="mb-2">Para consultar la API necesita su propia clave gratuita:</p>
+                <ol class="small">
+                    <li>Cree una cuenta en <a href="https://rapidapi.com" target="_blank" rel="noopener">rapidapi.com</a>.</li>
+                    <li>Busque <span class="fw-bold">Free-to-Play Games Database</span> y suscríbase al plan
+                        <span class="fw-bold">Basic</span> (gratis).</li>
+                    <li>Copie el valor de <code>X-RapidAPI-Key</code> que aparece en la pestaña de endpoints.</li>
+                </ol>
+                <form id="idFormClave" class="d-flex gap-2" novalidate>
+                    <input type="password" class="form-control" id="idTxtClave" placeholder="Pegue su X-RapidAPI-Key"
+                        autocomplete="off" aria-label="Clave de RapidAPI">
+                    <button type="submit" class="btn btn-primary text-nowrap">
+                        <i class="bi bi-check2-circle"></i> Guardar
+                    </button>
+                </form>
+                <p class="small text-body-secondary mt-2 mb-0">
+                    La clave solo se guarda en este navegador (LocalStorage) y no se sube al repositorio.
+                </p>
+            </div>
+        </div>
+
+        <!-- CONTENIDO PRINCIPAL: FILTROS Y LISTADO -->
+        <div id="idContenido" class="d-none">
+            <form id="idFormFiltros" class="row g-2 align-items-end mb-3">
+                <div class="col-md-3">
+                    <label for="idCmbPlataforma" class="form-label fw-bold">Plataforma</label>
+                    <select class="form-select" id="idCmbPlataforma">
+                        <option value="all">Todas</option>
+                        <option value="pc">PC (Windows)</option>
+                        <option value="browser">Navegador</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label for="idCmbOrden" class="form-label fw-bold">Ordenar por</label>
+                    <select class="form-select" id="idCmbOrden">
+                        <option value="relevance">Relevancia</option>
+                        <option value="popularity">Popularidad</option>
+                        <option value="release-date">Fecha de lanzamiento</option>
+                        <option value="alphabetical">Alfabético</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label for="idTxtBuscar" class="form-label fw-bold">Buscar en el listado</label>
+                    <input type="search" class="form-control" id="idTxtBuscar" placeholder="Nombre del juego">
+                </div>
+                <div class="col-md-2 d-grid">
+                    <button type="submit" class="btn btn-success">
+                        <i class="bi bi-arrow-repeat"></i> Consultar
+                    </button>
+                </div>
+            </form>
+
+            <p id="idResumen" class="text-body-secondary small"></p>
+
+            <!-- Mensajes de carga y de error -->
+            <div id="idCargando" class="text-center py-5 d-none" role="status">
+                <div class="spinner-border text-primary" aria-hidden="true"></div>
+                <p class="mt-2 mb-0">Cargando juegos...</p>
+            </div>
+            <div id="idError" class="alert alert-danger d-none" role="alert"></div>
+
+            <div id="idListado" class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 g-3"></div>
+
+            <div class="text-center mt-4">
+                <button type="button" id="idBtnMas" class="btn btn-outline-primary d-none">
+                    <i class="bi bi-plus-circle"></i> Mostrar más
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL CON EL DETALLE DEL JUEGO -->
+    <div class="modal fade" id="idModal" tabindex="-1" aria-labelledby="idTituloDetalle" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="idTituloDetalle">Detalle del juego</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body" id="idBodyDetalle"></div>
+                <div class="modal-footer">
+                    <a id="idLinkJugar" class="btn btn-success" target="_blank" rel="noopener">
+                        <i class="bi bi-controller"></i> Ir al juego
+                    </a>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/apiJuegos.js" defer></script>
+
+</body>
+
+</html>
